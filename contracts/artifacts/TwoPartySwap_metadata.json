@@ -1,0 +1,680 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "messageSender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferFrom",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferTo",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentPremium",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentAsset",
+						"type": "uint256"
+					}
+				],
+				"name": "AssetEscrowed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "messageSender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferFrom",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferTo",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentPremium",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentAsset",
+						"type": "uint256"
+					}
+				],
+				"name": "AssetRedeemed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "messageSender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferFrom",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferTo",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentPremium",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentAsset",
+						"type": "uint256"
+					}
+				],
+				"name": "AssetRefunded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "messageSender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferFrom",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferTo",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentPremium",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentAsset",
+						"type": "uint256"
+					}
+				],
+				"name": "PremiumEscrowed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "messageSender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferFrom",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferTo",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentPremium",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentAsset",
+						"type": "uint256"
+					}
+				],
+				"name": "PremiumRedeemed",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "messageSender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferFrom",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "transferTo",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentPremium",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "currentAsset",
+						"type": "uint256"
+					}
+				],
+				"name": "PremiumRefunded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address payable",
+						"name": "assetEscrower",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address payable",
+						"name": "premiumEscrower",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expectedPremium",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "expectedAsset",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "premiumDeadline",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "assetDeadline",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "assetTimeout",
+						"type": "uint256"
+					}
+				],
+				"name": "SetUp",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "assets",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "expected",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "current",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeout",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hashLock",
+						"type": "bytes32"
+					}
+				],
+				"name": "escrowAsset",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hashLock",
+						"type": "bytes32"
+					}
+				],
+				"name": "escrowPremium",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "premiums",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "expected",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "current",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "deadline",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "preimage",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hashLock",
+						"type": "bytes32"
+					}
+				],
+				"name": "redeemAsset",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hashLock",
+						"type": "bytes32"
+					}
+				],
+				"name": "redeemPremium",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hashLock",
+						"type": "bytes32"
+					}
+				],
+				"name": "refundAsset",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "hashLock",
+						"type": "bytes32"
+					}
+				],
+				"name": "refundPremium",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "expectedAssetEscrow",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "expectedPremiumEscrow",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address payable",
+						"name": "assetEscrower",
+						"type": "address"
+					},
+					{
+						"internalType": "address payable",
+						"name": "premiumEscrower",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "assetAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hashLock",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "firstAssetEscrow",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "delta",
+						"type": "uint256"
+					}
+				],
+				"name": "setup",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "swaps",
+				"outputs": [
+					{
+						"internalType": "address payable",
+						"name": "assetEscrower",
+						"type": "address"
+					},
+					{
+						"internalType": "address payable",
+						"name": "premiumEscrower",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "hashLock",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "assetAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"AssetEscrowed(address,uint256,address,address,uint256,uint256)": {
+					"notice": "AssetEscrowed: this event should emit  when the assetEscrower successfully escrows the asset"
+				},
+				"AssetRedeemed(address,uint256,address,address,uint256,uint256)": {
+					"notice": "AssetRedeemed: this event should emit when the assetEscrower successfully escrows the asset"
+				},
+				"AssetRefunded(address,uint256,address,address,uint256,uint256)": {
+					"notice": "AssetRefunded: this event should emit when the counterparty breaks the protocol  and the assetEscrower succesffully gets their asset refunded"
+				},
+				"PremiumEscrowed(address,uint256,address,address,uint256,uint256)": {
+					"notice": "PremiumEscrowed: this event should emit when the premiumEscrower successfully escrows the premium"
+				},
+				"PremiumRedeemed(address,uint256,address,address,uint256,uint256)": {
+					"notice": "PremiumRedeemed: this event should emit when the counterparty breaks the protocol and the assetEscrower redeems the  premium for breaking the protocol "
+				},
+				"PremiumRefunded(address,uint256,address,address,uint256,uint256)": {
+					"notice": "PremiumRefunded: this event should emit when the premiumEscrower successfully gets their premium refunded"
+				},
+				"SetUp(address,address,uint256,uint256,uint256,uint256,uint256,uint256)": {
+					"notice": "SetUp: this event should emit when a swap is successfully setup."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"escrowAsset(bytes32)": {
+					"notice": "The asset escrower has to escrow their premium for the protocol to succeed"
+				},
+				"escrowPremium(bytes32)": {
+					"notice": "The premium escrower has to escrow their premium for the protocol to succeed."
+				},
+				"redeemAsset(bytes32,bytes32)": {
+					"notice": "redeemAsset redeems the asset for the new owner"
+				},
+				"redeemPremium(bytes32)": {
+					"notice": "redeemPremium allows a party to redeem the counterparty's premium should the swap fail"
+				},
+				"refundAsset(bytes32)": {
+					"notice": "refundAsset refunds the asset to its original owner should the swap fail"
+				},
+				"refundPremium(bytes32)": {
+					"notice": "refundPremium refunds the premiumEscrower's premium should the swap succeed"
+				},
+				"setup(uint256,uint256,address,address,address,bytes32,uint256,bool,uint256)": {
+					"notice": "setup is called to initialize an instance of a swap in this contract.  Due to storage constraints, the various parts of the swap are spread  out between the three different mappings above: swaps, assets,  and premiums."
+				},
+				"swaps(bytes32)": {
+					"notice": "Mappings that store our swap details. This contract stores multiple swaps; you can access information about a specific swap by using its hashLock as the key to the appropriate mapping."
+				}
+			},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TwoPartySwap.sol": "TwoPartySwap"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0x4ffc0547c02ad22925310c585c0f166f8759e2648a09e9b489100c42f15dd98d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://15f52f51413a9de1ff191e2f6367c62178e1df7806d7880fe857a98b0b66253d",
+				"dweb:/ipfs/QmaQG1fwfgUt5E9nu2cccFiV47B2V78MM1tCy1qB7n4MsH"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x9750c6b834f7b43000631af5cc30001c5f547b3ceb3635488f140f60e897ea6b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a7d5b1ef5d8d5889ad2ed89d8619c09383b80b72ab226e0fe7bde1636481e34",
+				"dweb:/ipfs/QmebXWgtEfumQGBdVeM6c71McLixYXQP5Bk6kKXuoY4Bmr"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0x8de418a5503946cabe331f35fe242d3201a73f67f77aaeb7110acb1f30423aca",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://5a376d3dda2cb70536c0a45c208b29b34ac560c4cb4f513a42079f96ba47d2dd",
+				"dweb:/ipfs/QmZQg6gn1sUpM8wHzwNvSnihumUCAhxD119MpXeKp8B9s8"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		},
+		"contracts/TwoPartySwap.sol": {
+			"keccak256": "0xc14208b15b191360598926e42c13eff3eb6949ead8569930734f1346519e3bef",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://97ef717b29f546b3c9a704764880886ae4fbb5fa1c20cb674793dcbcf614339c",
+				"dweb:/ipfs/QmdB1LQC2CmSLoFx9zuMEGaV6WDeC1DsEVH682VLRHkpag"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0x60b0215121bf25612a6739fb2f1ec35f31ee82e4a8216c032c8243d904ab3aa9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6e29880d33dd479bb046ba306993d26ccb779a4b1d94a046cb3567f22948bb4d",
+				"dweb:/ipfs/QmfTY1qzPt5C63Wc7y6JqfZr5899NRvXYdCpyLzR5FXQic"
+			]
+		}
+	},
+	"version": 1
+}
